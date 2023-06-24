@@ -1,0 +1,21 @@
+.form__close {
+    width: 20px;
+    height: 20px;
+    background-image: url(../../images/close.svg);
+    background-position:center;
+    background-size: contain;
+    position: absolute;
+    right: 0;
+    top: -36px;
+}
+.form__close:hover {
+    opacity: .6;
+}
+@media (min-width: 1280px) {
+    .form__close {
+        width: 24px;
+        height: 24px;
+        right: -30px;
+        top: -30px;
+    }
+}

@@ -6,6 +6,9 @@
     background-position: center;
     border: 1px solid #ffffff;
 }
+.profile__edit:hover {
+    opacity: .6;
+}
 @media (min-width: 820px) {
     .profile__edit {
         width: 24px;
