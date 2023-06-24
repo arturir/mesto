@@ -1,0 +1,14 @@
+.profile__edit {
+    background-image: url(../../../images/edit.svg);
+    width: 18px;
+    height: 18px;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 1px solid #ffffff;
+}
+@media (min-width: 820px) {
+    .profile__edit {
+        width: 24px;
+        height: 24px;
+    }
+}

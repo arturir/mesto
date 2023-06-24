@@ -1,0 +1,10 @@
+.profile__wrapper-name {
+    display: flex;
+    align-items:first baseline;
+    gap: 10px;
+}
+@media (min-width: 820px) {
+    .profile__wrapper-name {
+        gap: 18px;
+    }
+}

@@ -1,0 +1,10 @@
+.profile__info {
+    align-self: center;
+    margin-bottom: 36px;
+}
+@media (min-width: 820px ) {
+    .profile__info {
+        align-self: center;
+        margin-bottom: 0;
+    }
+}
