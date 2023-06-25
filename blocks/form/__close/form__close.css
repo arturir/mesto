@@ -1,15 +1,15 @@
 .form__close {
     width: 20px;
     height: 20px;
-    background-image: url(../../images/close.svg);
+    background-image: url(../../../images/close.svg);
     background-position:center;
     background-size: contain;
     position: absolute;
     right: 0;
-    top: -36px;
 }
 .form__close:hover {
     opacity: .6;
+    cursor: pointer;
 }
 @media (min-width: 1280px) {
     .form__close {

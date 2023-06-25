@@ -5,9 +5,11 @@
     background-repeat: no-repeat;
     background-position: center;
     border: 1px solid #ffffff;
+    box-sizing: border-box;
 }
 .profile__edit:hover {
     opacity: .6;
+    cursor: pointer;
 }
 @media (min-width: 820px) {
     .profile__edit {

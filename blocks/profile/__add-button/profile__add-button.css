@@ -7,11 +7,10 @@
 }
 .profile__add-button:hover {
     opacity: .6;
+    cursor: pointer;
 }
 @media (min-width: 820px) {
     .profile__add-button {
         width: 150px;
-        border: 2px solid #ffffff;
-        background-color: rgba(0, 0, 0, 0);
     }
 }
