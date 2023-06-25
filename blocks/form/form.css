@@ -1,20 +1,12 @@
 .form {
-    width: 282px;
-    min-height: 322px;
     display: flex;
     flex-direction: column;
-    background-color: #FFFFFF;
     align-items: center;
     justify-content: space-between;
-    padding: 25px 0 25px;
-    border-radius: 10px;
-    box-sizing: border-box;
-    position: relative; 
+    margin: 25px 0 25px;
 }
 @media (min-width: 1280px) {
     .form {
-        width: 430px;
-        min-height: 330px;
-        padding: 34px 0 37px;
+        margin: 34px 0 37px;
     }
 }

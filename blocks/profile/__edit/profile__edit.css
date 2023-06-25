@@ -2,6 +2,7 @@
     background-image: url(../../../images/edit.svg);
     width: 18px;
     height: 18px;
+    background-color: rgba(0, 0, 0, 0);
     background-repeat: no-repeat;
     background-position: center;
     border: 1px solid #ffffff;

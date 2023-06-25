@@ -20,12 +20,12 @@
                     <div class="profile__info">
                         <div class="profile__wrapper-name">
                             <h1 class="profile__name">Жак-Ив Кусто</h1>
-                            <div class="profile__edit"></div>
+                            <button type="button" class="profile__edit"></button>
                         </div>
-                        <p class="profile__metier">Исследователь океана</p>
+                        <h2 class="profile__metier">Исследователь океана</h2>
                     </div>
                 </div>
-                <button class="profile__add-button">
+                <button type="button" class="profile__add-button">
                     <img src="images/add.svg" class="profile__add" alt="Добавить">
                 </button>
             </section>
@@ -33,43 +33,43 @@
                 <div class="card">
                     <img src="images/karachaevsk.jpg" class="card__image" alt="Старая церковь">
                     <div class="card__wrapper">
-                        <p class="card__title">Карачаевск</p>
-                        <div class="card__like"></div>
+                        <h2 class="card__title">Карачаевск</h2>
+                        <button type="button" class="card__like"></button>
                     </div>
                 </div>
                 <div class="card">
                     <img src="images/elbrus.jpg" class="card__image" alt="Вершина Эльбруса">
                     <div class="card__wrapper">
-                        <p class="card__title">Гора Эльбрус</p>
-                        <div class="card__like"></div>
+                        <h2 class="card__title">Гора Эльбрус</h2>
+                        <button type="button" class="card__like"></button>
                     </div>
                 </div>
                 <div class="card">
                     <img src="images/dombay.jpg" class="card__image" alt="Вершина горы">
                     <div class="card__wrapper">
-                        <p class="card__title">Домбай</p>
-                        <div class="card__like"></div>
+                        <h2 class="card__title">Домбай</h2>
+                        <button type="button" class="card__like"></button>
                     </div>
                 </div>
                 <div class="card">
                     <img src="images/elbrus.jpg" class="card__image" alt="Вершина Эльбруса">
                     <div class="card__wrapper">
-                        <p class="card__title">Гора Эльбрус</p>
-                        <div class="card__like"></div>
+                        <h2 class="card__title">Гора Эльбрус</h2>
+                        <button type="button" class="card__like"></button>
                     </div>
                 </div>
                 <div class="card">
                     <img src="images/dombay.jpg" class="card__image" alt="Вершина горы">
                     <div class="card__wrapper">
-                        <p class="card__title">Домбай</p>
-                        <div class="card__like"></div>
+                        <h2 class="card__title">Домбай</h2>
+                        <button type="button" class="card__like"></button>
                     </div>
                 </div>
                 <div class="card">
                     <img src="images/karachaevsk.jpg" class="card__image" alt="Старая церковь">
                     <div class="card__wrapper">
-                        <p class="card__title">Карачаево-Черкессия</p>
-                        <div class="card__like"></div>
+                        <h2 class="card__title">Карачаево-Черкессия</h2>
+                        <button type="button" class="card__like"></button>
                     </div>
                 </div>
             </section>
@@ -77,16 +77,18 @@
         <footer class="footer">
             <p class="footer__copyright">© 2020 Mesto Russia</p>
         </footer>
-        <div class="form-background">
-            <form class="form">
-                <h2 class="form__title">Редактировать профиль</h2>
-                <input type="text" class="form__name" value="Жак-Ив Кусто">
-                <input type="text" class="form__metier" value="Исследователь океана">
-                <button type="submit" class="form__submit">Сохранить</button>
-                <div class="form__close"></div>    
-            </form>
+        <div class="popup">
+            <div class="popup__container">
+                <form class="form" name="profile-form">
+                    <h2 class="form__title">Редактировать профиль</h2>
+                    <input type="text" class="form__text" name="name" value="Имя">
+                    <input type="text" class="form__text" name="metier" value="Деятельность">
+                    <button type="submit" class="form__submit">Сохранить</button>    
+                </form>
+                <button type="button" class="popup__close"></button> 
+            </div>
         </div>
     </div>
-    <script src="pages/index.js"></script>
+    <script src="scripts/index.js"></script>
 </body>
 </html>

@@ -1,21 +1,24 @@
-.form__close {
+.popup__close {
     width: 20px;
     height: 20px;
+    background-color: rgba(0, 0, 0, 0);
     background-image: url(../../../images/close.svg);
     background-position:center;
     background-size: contain;
     position: absolute;
     right: 0;
+    top: -36px;
+    border: 0px;
 }
-.form__close:hover {
+.popup__close:hover {
     opacity: .6;
     cursor: pointer;
 }
 @media (min-width: 1280px) {
-    .form__close {
-        width: 24px;
-        height: 24px;
-        right: -30px;
-        top: -30px;
+    .popup__close {
+        width: 32px;
+        height: 32px;
+        right: -40px;
+        top: -40px;
     }
 }
