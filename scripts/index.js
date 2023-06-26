@@ -10,8 +10,10 @@ let editButton = document.querySelector(".profile__edit"),
 function openOrCloseForm (form) {
     form.classList.toggle("popup_active");
     body.classList.toggle("body_no-scroll");
-    formName.value = profileName.textContent;
-    formMetier.value = profileMetier.textContent;
+    if (form.classList.contains("popup_active")) {
+        formName.value = profileName.textContent;
+        formMetier.value = profileMetier.textContent;
+    }
 }
 function saveProfile (event) {
     profileName.innerHTML = formName.value;
