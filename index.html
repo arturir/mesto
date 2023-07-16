@@ -30,48 +30,6 @@
                 </button>
             </section>
             <section class="cards">
-                <div class="card">
-                    <img src="images/karachaevsk.jpg" class="card__image" alt="Старая церковь">
-                    <div class="card__wrapper">
-                        <h2 class="card__title">Карачаевск</h2>
-                        <button type="button" class="card__like"></button>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="images/elbrus.jpg" class="card__image" alt="Вершина Эльбруса">
-                    <div class="card__wrapper">
-                        <h2 class="card__title">Гора Эльбрус</h2>
-                        <button type="button" class="card__like"></button>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="images/dombay.jpg" class="card__image" alt="Вершина горы">
-                    <div class="card__wrapper">
-                        <h2 class="card__title">Домбай</h2>
-                        <button type="button" class="card__like"></button>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="images/elbrus.jpg" class="card__image" alt="Вершина Эльбруса">
-                    <div class="card__wrapper">
-                        <h2 class="card__title">Гора Эльбрус</h2>
-                        <button type="button" class="card__like"></button>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="images/dombay.jpg" class="card__image" alt="Вершина горы">
-                    <div class="card__wrapper">
-                        <h2 class="card__title">Домбай</h2>
-                        <button type="button" class="card__like"></button>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="images/karachaevsk.jpg" class="card__image" alt="Старая церковь">
-                    <div class="card__wrapper">
-                        <h2 class="card__title">Карачаево-Черкессия</h2>
-                        <button type="button" class="card__like"></button>
-                    </div>
-                </div>
             </section>
         </main>
         <footer class="footer">
@@ -79,16 +37,39 @@
         </footer>
         <div class="popup">
             <div class="popup__container">
-                <form class="form" name="profile-form">
+                <form class="form form_profile" name="profile-form">
                     <h2 class="form__title">Редактировать профиль</h2>
-                    <input type="text" class="form__text" name="name" value="Имя">
-                    <input type="text" class="form__text" name="metier" value="Деятельность">
+                    <input type="text" class="form__text" name="name" placeholder="Имя">
+                    <input type="text" class="form__text" name="metier" placeholder="Деятельность">
                     <button type="submit" class="form__submit">Сохранить</button>    
                 </form>
-                <button type="button" class="popup__close"></button> 
+                <form class="form form_new-place" name="new-place-form">
+                    <h2 class="form__title">Новое место</h2>
+                    <input type="text" class="form__text" name="place" placeholder="Название">
+                    <input type="text" class="form__text" name="link" placeholder="Ссылка на картинку">
+                    <button type="submit" class="form__submit">Добавить</button>    
+                </form>
+                <button type="button" class="close-icon popup__close"></button> 
+            </div>
+        </div>
+        <div class="popup-image">
+            <div class="popup-image__container">
+                <img src="#" class="popup-image__image" alt="#">
+                <button type="button" class="close-icon popup-image__close"></button>
+                <p class="popup-image__title"></p>
             </div>
         </div>
     </div>
+    <template class="template">
+        <div class="card">
+            <img src="#" class="card__image" alt="#">
+            <div class="card__wrapper">
+                <h2 class="card__title"></h2>
+                <button type="button" class="card__like"></button>
+            </div>
+            <button type="button" class="card__delete"></button>
+        </div>
+    </template>
     <script src="scripts/index.js"></script>
 </body>
 </html>

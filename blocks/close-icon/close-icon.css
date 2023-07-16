@@ -1,4 +1,4 @@
-.popup__close {
+.close-icon {
     width: 20px;
     height: 20px;
     background-color: rgba(0, 0, 0, 0);
@@ -10,12 +10,12 @@
     top: -36px;
     border: 0px;
 }
-.popup__close:hover {
+.close-icon:hover {
     opacity: .6;
     cursor: pointer;
 }
 @media (min-width: 1280px) {
-    .popup__close {
+    .close-icon {
         width: 32px;
         height: 32px;
         right: -40px;
