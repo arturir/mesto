@@ -1,6 +1,8 @@
-.popup-image__container {
+.gallery {
     position: relative;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    width: auto;
+    background-color: none;
 }

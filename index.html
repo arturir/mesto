@@ -35,28 +35,35 @@
         <footer class="footer">
             <p class="footer__copyright">© 2020 Mesto Russia</p>
         </footer>
-        <div class="popup">
-            <div class="popup__container">
+        <div class="popup popup_profile-editor">
+            <div class="popup__container popup__container_form ">
                 <form class="form form_profile" name="profile-form">
                     <h2 class="form__title">Редактировать профиль</h2>
-                    <input type="text" class="form__text" name="name" placeholder="Имя">
-                    <input type="text" class="form__text" name="metier" placeholder="Деятельность">
+                    <input type="text" class="form__text" name="name" placeholder="Имя" required>
+                    <input type="text" class="form__text" name="metier" placeholder="Деятельность" required>
                     <button type="submit" class="form__submit">Сохранить</button>    
                 </form>
-                <form class="form form_new-place" name="new-place-form">
-                    <h2 class="form__title">Новое место</h2>
-                    <input type="text" class="form__text" name="place" placeholder="Название">
-                    <input type="text" class="form__text" name="link" placeholder="Ссылка на картинку">
-                    <button type="submit" class="form__submit">Добавить</button>    
-                </form>
-                <button type="button" class="close-icon popup__close"></button> 
+                <button type="button" class="close-icon"></button> 
             </div>
         </div>
-        <div class="popup-image">
-            <div class="popup-image__container">
-                <img src="#" class="popup-image__image" alt="#">
-                <button type="button" class="close-icon popup-image__close"></button>
-                <p class="popup-image__title"></p>
+        <div class="popup popup_new-card">
+            <div class="popup__container popup__container_form ">
+                <form class="form form_new-place" name="new-place-form">
+                    <h2 class="form__title">Новое место</h2>
+                    <input type="text" class="form__text" name="place" placeholder="Название" required>
+                    <input type="text" class="form__text" name="link" placeholder="Ссылка на картинку" required>
+                    <button type="submit" class="form__submit">Добавить</button>    
+                </form>
+                <button type="button" class="close-icon"></button> 
+            </div>
+        </div>
+        <div class="popup popup_image">
+            <div class="popup__container">
+                <div class="gallery">
+                    <img src="#" class="gallery__image" alt="#">
+                    <p class="gallery__title"></p>
+                </div>
+                <button type="button" class="close-icon"></button>
             </div>
         </div>
     </div>
