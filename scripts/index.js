@@ -1,4 +1,4 @@
-let addButton = document.querySelector(".profile__add-button"),
+const addButton = document.querySelector(".profile__add-button"),
     editButton = document.querySelector(".profile__edit"),
     profileName = document.querySelector(".profile__name"),
     profileMetier = document.querySelector(".profile__metier"),
@@ -10,9 +10,8 @@ let addButton = document.querySelector(".profile__add-button"),
     formLink= document.querySelector("input[name='link']"),
     formProfile = document.querySelector(".form_profile"),
     formNewPlace = document.querySelector(".form_new-place"),
-    activeForm,
-    formClose = document.querySelector(".popup__close"),
-    imageClose = document.querySelector(".popup-image__close"),
+    formCloser = document.querySelector(".popup__close"),
+    imageCloser = document.querySelector(".popup-image__close"),
     body = document.querySelector(".body"),
     cards = document.querySelector(".cards"),
     template = document.querySelector(".template").content,
@@ -43,6 +42,7 @@ let addButton = document.querySelector(".profile__add-button"),
           link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
         }
       ];
+let activeForm;
 function openOrCloseForm (popupWindow, form) {
     popupWindow.classList.toggle("popup_active");
     form.classList.toggle("form_active");
@@ -55,8 +55,8 @@ function openOrCloseForm (popupWindow, form) {
 }
 function saveProfile () {
     event.preventDefault();
-    profileName.innerHTML = formName.value;
-    profileMetier.innerHTML = formMetier.value;
+    profileName.textContent = formName.value;
+    profileMetier.textContent = formMetier.value;
     openOrCloseForm(popupWindow, formProfile);
 }
 function renderCard (card) {
@@ -87,12 +87,12 @@ function openImage (image) {
     body.classList.toggle("body_no-scroll");
     popupImage.querySelector(".popup-image__image").src = image.src;
     popupImage.querySelector(".popup-image__image").alt = image.parentNode.querySelector(".card__title").textContent;
-    popupImage.querySelector(".popup-image__title").innerHTML = image.parentNode.querySelector(".card__title").textContent;
+    popupImage.querySelector(".popup-image__title").textContent = image.parentNode.querySelector(".card__title").textContent;
 }
 initialCards.forEach(card => renderCard(card));
 editButton.addEventListener("click", () => {openOrCloseForm(popupWindow, formProfile)});
 addButton.addEventListener("click", () => {openOrCloseForm(popupWindow, formNewPlace)});
-formClose.addEventListener("click", () => {openOrCloseForm(popupWindow, activeForm)});
-imageClose.addEventListener("click", ()=> {popupImage.classList.toggle("popup-image_active");  body.classList.toggle("body_no-scroll");});
+formCloser.addEventListener("click", () => {openOrCloseForm(popupWindow, activeForm)});
+imageCloser.addEventListener("click", ()=> {popupImage.classList.toggle("popup-image_active");  body.classList.toggle("body_no-scroll");});
 formProfile.addEventListener("submit", saveProfile);
 formNewPlace.addEventListener("submit", addNewCard);
