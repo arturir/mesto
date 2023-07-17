@@ -42,10 +42,9 @@ const addImageButton = document.querySelector(".profile__add-button"),
           name: 'Байкал',
           link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
         }
-      ];
-let imageInPopupImage = document.querySelector(".gallery__image"),
+      ],
+    imageInPopupImage = document.querySelector(".gallery__image"),
     titleInPopupImage = document.querySelector(".gallery__title");
-
 function handleLikeClick (event) {
   event.target.classList.toggle("card__like_active");
 }
@@ -71,14 +70,15 @@ function renderCard (card) {
 function openPopup (popup) {
   popup.classList.add("popup_active");
   body.classList.add("body_no-scroll");
-  if (!popup.classList.contains("popup_image") && popup.querySelector("form").classList.contains("form_profile")) {
-    formName.value = profileName.textContent;
-    formMetier.value = profileMetier.textContent;
-  }
 }
+function openPropfilePopup(profile) { 
+  openPopup(profile);
+  formName.value = profileName.textContent;
+  formMetier.value = profileMetier.textContent;
+} 
 function closePopup (event) {
-  if (event.currentTarget.parentNode.parentNode.classList.contains("popup_active")) {event.currentTarget.parentNode.parentNode.classList.remove("popup_active")}
-  else {event.currentTarget.parentNode.parentNode.parentNode.classList.remove("popup_active")}
+  if (event.currentTarget.closest(".popup_active")) {event.currentTarget.closest(".popup_active").classList.remove("popup_active")}
+  else {event.currentTarget.closest.classList.remove(".popup_active")}
   body.classList.remove("body_no-scroll");
 }
 function saveProfile (event) {
@@ -101,7 +101,7 @@ function openImage (image) {
 }
 initialCards.forEach(card => renderCard(card));
 popupClosers.forEach(item => item.addEventListener("click", closePopup));
-editButton.addEventListener("click", () => {openPopup(popupProfileEditor)});
+editButton.addEventListener("click", () => {openPropfilePopup(popupProfileEditor)});
 addImageButton.addEventListener("click", () => {openPopup(popupNewCard)});
 formProfile.addEventListener("submit", saveProfile);
 formNewPlace.addEventListener("submit", addNewCard);
