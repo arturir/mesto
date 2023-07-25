@@ -40,11 +40,6 @@ const toggleButtonMessage = (form, button, inactiveButtonClass) => {
     }
 }
 const validation = (form, inputs, button, inactiveButtonClass, inputError, errorClass) => {
-    // disableButton(button, inactiveButtonClass);
-    // console.log(checkValidationForm(form));
-    // if (checkValidationForm(form)) {
-    //     enableButton(button, inactiveButtonClass);
-    // }
     form.addEventListener('input', () => {
         toggleButtonMessage(form, button, inactiveButtonClass);
     });
