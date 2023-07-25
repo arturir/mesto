@@ -39,8 +39,10 @@
             <div class="popup__container popup__container_form ">
                 <form class="form form_profile" name="profile-form">
                     <h2 class="form__title">Редактировать профиль</h2>
-                    <input type="text" class="form__text" name="name" placeholder="Имя" required>
-                    <input type="text" class="form__text" name="metier" placeholder="Деятельность" required>
+                    <input id="profile-form-name" type="text" class="form__text" name="name" placeholder="Имя" minlength="2" maxlength="40" required>
+                    <span class="form__input-error profile-form-name-error"></span>
+                    <input id="profile-form-metier" type="text" class="form__text" name="metier" placeholder="Деятельность" minlength="2" maxlength="200" required>
+                    <span class="form__input-error profile-form-metier-error"></span>
                     <button type="submit" class="form__submit">Сохранить</button>    
                 </form>
                 <button type="button" class="close-icon"></button> 
@@ -50,9 +52,11 @@
             <div class="popup__container popup__container_form ">
                 <form class="form form_new-place" name="new-place-form">
                     <h2 class="form__title">Новое место</h2>
-                    <input type="text" class="form__text" name="place" placeholder="Название" required>
-                    <input type="text" class="form__text" name="link" placeholder="Ссылка на картинку" required>
-                    <button type="submit" class="form__submit">Добавить</button>    
+                    <input id="new-place-form-place" type="text" class="form__text" name="place" placeholder="Название" minlength="2" maxlength="30"required>
+                    <span class="form__input-error new-place-form-place-error">опа</span>
+                    <input id="new-place-form-link" type="url" class="form__text" name="link" placeholder="Ссылка на картинку" required>
+                    <span class="form__input-error new-place-form-link-error">пiймав на ошибке</span>
+                    <button type="submit" class="form__submit form__submit_disabled">Добавить</button>    
                 </form>
                 <button type="button" class="close-icon"></button> 
             </div>
@@ -78,5 +82,6 @@
         </div>
     </template>
     <script src="scripts/index.js"></script>
+    <script src="scripts/validate.js"></script>
 </body>
 </html>

@@ -2,6 +2,7 @@ const addImageButton = document.querySelector(".profile__add-button"),
     editButton = document.querySelector(".profile__edit"),
     profileName = document.querySelector(".profile__name"),
     profileMetier = document.querySelector(".profile__metier"),
+    popups = Array.from(document.querySelectorAll(".popup")),
     popupProfileEditor = document.querySelector(".popup_profile-editor"),
     popupNewCard = document.querySelector(".popup_new-card"),
     popupImage = document.querySelector(".popup_image"),
@@ -76,10 +77,28 @@ function openPropfilePopup(profile) {
   formName.value = profileName.textContent;
   formMetier.value = profileMetier.textContent;
 } 
-function closePopup (event) {
-  if (event.currentTarget.closest(".popup_active")) {event.currentTarget.closest(".popup_active").classList.remove("popup_active")}
-  else {event.currentTarget.closest.classList.remove(".popup_active")}
+// function closePopup (event) {
+//   const openedPopup = document.querySelector()
+//   if (event.currentTarget.closest(".popup_active")) {event.currentTarget.closest(".popup_active").classList.remove("popup_active")}
+//   else {event.currentTarget.closest.classList.remove(".popup_active")}
+//   body.classList.remove("body_no-scroll");
+// }
+
+function closePopup () {
+  const openedPopup = document.querySelector(".popup_active");
+  openedPopup.classList.remove("popup_active");
   body.classList.remove("body_no-scroll");
+}
+function closePopupClickOverlay (event) {
+  if (event.target.classList.contains('popup')) {
+    closePopup();
+  }
+}
+function closePopupClickEscape (event) {
+  const key = event.key;
+  if (key === "Escape") {
+    closePopup();
+  }
 }
 function saveProfile (event) {
     event.preventDefault();
@@ -101,6 +120,8 @@ function openImage (image) {
 }
 initialCards.forEach(card => renderCard(card));
 popupClosers.forEach(item => item.addEventListener("click", closePopup));
+popups.forEach(popup => popup.addEventListener('mousedown', closePopupClickOverlay));
+window.addEventListener('keydown', closePopupClickEscape);
 editButton.addEventListener("click", () => {openPropfilePopup(popupProfileEditor)});
 addImageButton.addEventListener("click", () => {openPopup(popupNewCard)});
 formProfile.addEventListener("submit", saveProfile);
