@@ -96,7 +96,7 @@ function closePopupClickOverlay (event) {
 }
 function closePopupClickEscape (event) {
   const key = event.key;
-  if (key === "Escape") {
+  if (key === "Escape" && document.querySelector('.popup_active')) {
     closePopup();
   }
 }
