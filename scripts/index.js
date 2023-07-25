@@ -77,13 +77,6 @@ function openPropfilePopup(profile) {
   formName.value = profileName.textContent;
   formMetier.value = profileMetier.textContent;
 } 
-// function closePopup (event) {
-//   const openedPopup = document.querySelector()
-//   if (event.currentTarget.closest(".popup_active")) {event.currentTarget.closest(".popup_active").classList.remove("popup_active")}
-//   else {event.currentTarget.closest.classList.remove(".popup_active")}
-//   body.classList.remove("body_no-scroll");
-// }
-
 function closePopup () {
   const openedPopup = document.querySelector(".popup_active");
   openedPopup.classList.remove("popup_active");
