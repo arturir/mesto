@@ -1,4 +1,3 @@
-const forms = Array.from(document.querySelectorAll('.form'));
 const showErrorMessage = (form, input, inputError, errorClass) => {
     const errorMessage = form.querySelector(`.${input.id}-error`);
     errorMessage.textContent = input.validationMessage;
@@ -59,7 +58,8 @@ const enableValidation = (obj) => {
 
     validation(form, inputs, submitButton, inactiveButton, inputError, error);
 }
-forms.forEach((form)=> {enableValidation({  
+
+Array.from(document.querySelectorAll('.form')).forEach((form)=> {enableValidation({  
     formSelector: `.${form.classList[1]}`,
     inputSelector: '.form__text',
     submitButtonSelector: '.form__submit',
