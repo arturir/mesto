@@ -8,16 +8,6 @@ class FormValidator {
         this._inputError = settings.inputErrorClass,
         this._error = settings.errorClass;
     }
-    _validation(){
-        this._form.addEventListener('input', () => {
-            this._toggleButtonMessage();
-        });
-        this._inputs.forEach((input) => {
-            input.addEventListener('input', ()=> {
-                this._toggleErrorMessage.call(this, input);
-            })
-        })
-    }
     _toggleErrorMessage (input) {
         if (!input.validity.valid) {
             this._showErrorMessage.call(this, input);
@@ -53,13 +43,22 @@ class FormValidator {
         return input.validity.valid
     }
     _checkValidationForm () {
-        const allInputs = Array.from(this._form.querySelectorAll('input'));
-        return allInputs.reduce((accum, input)=> {
+        return this._inputs.reduce((accum, input)=> {
             return accum && input.validity.valid;
         }, true);
     }
-    enableValidation () {
-        this._validation (this._form, this._inputs, this._submitButton, this._inactiveButton, this._inputError, this._error);
+    enableValidation (){
+        this._form.addEventListener('input', () => {
+            this._toggleButtonMessage();
+        });
+        this._inputs.forEach((input) => {
+            input.addEventListener('change', ()=> {
+                this._toggleErrorMessage.call(this, input);
+            })
+            input.addEventListener('input', ()=> {
+                this._toggleErrorMessage.call(this, input);
+            })
+        })
     }
 }
 export default FormValidator

@@ -16,7 +16,10 @@ const buttonOpenPopupCard = document.querySelector(".profile__add-button"),
     formNewPlace = document.querySelector(".form_new-place"),
     popupClosers = document.querySelectorAll(".close-icon"),
     body = document.querySelector(".body"),
-    cards = document.querySelector(".cards");
+    cards = document.querySelector(".cards"),
+    popupImage = document.querySelector(".popup_image"),
+    imageInPopupImage = document.querySelector(".gallery__image"),
+    titleInPopupImage = document.querySelector(".gallery__title");
 
 function openPopup (popup) {
   popup.classList.add("popup_active");
@@ -25,16 +28,16 @@ function openPopup (popup) {
 }
 function openPropfilePopup(profile) { 
   openPopup(profile);
+  const eventInput = new Event("input");
   formName.value = profileName.textContent;
   formMetier.value = profileMetier.textContent;
+  formName.dispatchEvent(eventInput);
+  formMetier.dispatchEvent(eventInput);
 } 
 function closePopup (openedPopup) {
-  const allActiveErrorMessages = openedPopup.querySelectorAll('.form__input-error_active');
-  allActiveErrorMessages.forEach(item => {item.classList.remove('form__input-error_active')});
   openedPopup.classList.remove("popup_active");
   body.classList.remove("body_no-scroll");
   document.removeEventListener('keydown', closePopupClickEscape);
-
 }
 function closePopupClickOverlay (event) {
   const openedPopup = event.target;
@@ -54,11 +57,18 @@ function saveProfile (event) {
     profileMetier.textContent = formMetier.value;
     closePopup(event.target.closest('.popup'));
 }
+function createCard (card, template) {
+  return new Card(card, template);
+}
+function renderCard (card, template) {
+  cards.prepend(createCard(card, template).createCard());
+}
+
 function addNewCard (event) {
     event.preventDefault();
-    let newCard = new Card({name: formPlace.value, link: formLink.value}, '.template');
-    cards.prepend(newCard.createCard());
+    renderCard({name: formPlace.value, link: formLink.value}, '.template')
     formNewPlace.reset();
+    popupNewCard.querySelector('.form__submit').classList.add('form__submit_disabled');
     closePopup(event.target.closest('.popup'));
 }
 popupClosers.forEach(item => item.addEventListener("click", (event) => {closePopup(event.target.closest('.popup'))})); 
@@ -79,9 +89,6 @@ Array.from(document.querySelectorAll('.form')).forEach((form)=> {
   }, form);
   validateFrom.enableValidation();
 });
-function renderCard (card, template) {
-  let newCard = new Card(card, template);
-  cards.prepend(newCard.createCard());
-}
+
 initialCards.forEach(card => renderCard(card, '.template')); 
-export default openPopup;
+export {openPopup, popupImage, imageInPopupImage, titleInPopupImage};
