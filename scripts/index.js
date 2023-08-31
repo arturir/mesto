@@ -25,7 +25,9 @@ function openPopup (popup, validateForm) {
   popup.classList.add("popup_active");
   body.classList.add("body_no-scroll");
   document.addEventListener('keydown', closePopupClickEscape);
-  validateForm.resetValidation();
+  if (validateForm) {
+    validateForm.resetValidation();
+  }
 }
 function openPropfilePopup(profile, validateForm) { 
   openPopup(profile, validateForm);
