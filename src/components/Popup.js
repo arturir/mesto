@@ -11,6 +11,7 @@ export default class Popup {
     close () {
         this._popup.classList.remove("popup_active");
         body.classList.remove("body_no-scroll");
+        document.removeEventListener("keydown", (event) => {this._handleEscClose(event)} );
     }
     _handleEscClose(event) {
         if (event.key === "Escape") {
