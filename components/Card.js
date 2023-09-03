@@ -1,11 +1,11 @@
-import {openPopup, popupImage, imageInPopupImage, titleInPopupImage} from "./index.js";
-class Card {
-    constructor(card, template) {
+export default class Card {
+    constructor(card, template, handleCardClick) {
       this._link = card.link;
       this._name = card.name;
       this._template = template;
       this._newCard = this._getTemplateCard();
       this._cardImage = this._newCard.querySelector(".card__image");
+      this._handleCardClick = handleCardClick;
     }
     _getTemplateCard () {
       return document.querySelector(`${this._template}`).content.querySelector(".card").cloneNode(true);
@@ -35,10 +35,6 @@ class Card {
       this._openImage();
     }
     _openImage () {
-      openPopup(popupImage);
-      imageInPopupImage.src = this._link;
-      imageInPopupImage.alt = this._name;
-      titleInPopupImage.textContent = this._name;
+      this._handleCardClick(this._link, this._name)
     }
   }
-  export default Card;
