@@ -8,7 +8,7 @@ export default class Card {
       this._handleCardClick = handleCardClick;
     }
     _getTemplateCard () {
-      return document.querySelector(`${this._template}`).content.querySelector(".card").cloneNode(true);
+      return document.querySelector(this._template).content.querySelector(".card").cloneNode(true);
     }
     createCard() {
       this._cardImage.src = this._link;
@@ -35,6 +35,6 @@ export default class Card {
       this._openImage();
     }
     _openImage () {
-      this._handleCardClick(this._link, this._name)
+      this._handleCardClick(this._name, this._link);
     }
   }

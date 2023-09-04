@@ -3,10 +3,12 @@ export default class Popup {
     constructor(selector) {
         this._popup = document.querySelector(selector);
         this._closeIcon = this._popup.querySelector(".close-icon");
+        this._handleEscClose = this._handleEscClose.bind(this);
     }
     open () {
         this._popup.classList.add("popup_active");
         body.classList.add("body_no-scroll");
+        document.addEventListener("keydown", (event) => {this._handleEscClose(event)} );
     }
     close () {
         this._popup.classList.remove("popup_active");
@@ -26,7 +28,6 @@ export default class Popup {
     setEventListeners() {
         this._closeIcon.addEventListener("click", this.close.bind(this));
         this._popup.addEventListener("mousedown", (event) => {this._handleOverlayClose(event)} );
-        document.addEventListener("keydown", (event) => {this._handleEscClose(event)} );
     }
 
 }
