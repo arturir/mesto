@@ -15,7 +15,7 @@
         <main class="main">
             <section class="profile">
                 <div class="profile__left-column">
-                    <img src="<%=require('./images/avatar.jpg')%>" class="profile__avatar" alt="Аватар профиля">
+                    <div class="profile__avatar"></div>
                     <div class="profile__info">
                         <div class="profile__wrapper-name">
                             <h1 class="profile__name"></h1>
@@ -32,7 +32,7 @@
             </section>
         </main>
         <footer class="footer">
-            <p class="footer__copyright">© 2020 Mesto Russia</p>
+            <p class="footer__copyright">© 2023 Mesto Russia</p>
         </footer>
         <div class="popup popup_profile-editor">
             <div class="popup__container popup__container_form ">
@@ -60,6 +60,17 @@
                 <button type="button" class="close-icon"></button> 
             </div>
         </div>
+        <div class="popup popup_avatar-editor">
+            <div class="popup__container popup__container_form ">
+                <form class="form form_avatar-editor" name="new-avatar-editor" novalidate>
+                    <h2 class="form__title">Обновить аватар</h2>
+                    <input id="new-place-form-place" type="url" class="form__text" name="avatar" placeholder="URL" minlength="2" maxlength="256"required>
+                    <span class="form__input-error new-place-form-place-error"></span>
+                    <button type="submit" class="form__submit form__submit_disabled">Сохранить</button>    
+                </form>
+                <button type="button" class="close-icon"></button> 
+            </div>
+        </div>
         <div class="popup popup_image">
             <div class="popup__container">
                 <div class="gallery">
@@ -69,15 +80,26 @@
                 <button type="button" class="close-icon"></button>
             </div>
         </div>
+        <div class="popup popup_delete">
+            <div class="popup__container popup__container_form">
+                <form class="form form_delete-card" name="delete-card-form" novalidate>
+                    <h2 class="form__title">Вы уверены?</h2>
+                    <button type="button" class="form__submit">Да</button>    
+                </form>
+                <button type="button" class="close-icon"></button>
+            </div>
+        </div>
     </div>
     <template class="template">
         <div class="card">
             <img src="#" class="card__image" alt="#">
             <div class="card__wrapper">
                 <h2 class="card__title"></h2>
-                <button type="button" class="card__like"></button>
+                <div class="card__wrapper-like">
+                    <button type="button" class="card__like"></button>
+                    <p class="card__current-likes">0</p>
+                </div>
             </div>
-            <button type="button" class="card__delete"></button>
         </div>
     </template>
 </body>
