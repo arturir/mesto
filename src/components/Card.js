@@ -3,7 +3,7 @@ export default class Card {
       this._link = card.link;
       this._name = card.name;
       this._id = card._id;
-      this._userId = "837a2b7f12f475ab3575349d";
+      this._userId = card.myId;
       this._ownerId = card.owner._id;
       this._likes = card.currentLikes;
       this._handleLikeClick = handleLikeClick;
@@ -15,19 +15,20 @@ export default class Card {
       this.handleDeleteCardClick = handleDeleteCardClick;
       this.likeButton = this._newCard.querySelector(".card__like");
       this.currentLikes = this._newCard.querySelector(".card__current-likes");
-      this.deleteButton = document.createElement("button");
-      this.deleteButton.setAttribute("type", "button");
-      this.deleteButton.classList.add("card__delete");
+      this._deleteButton = this._newCard.querySelector(".card__delete");
     }
     _getTemplateCard () {
       return document.querySelector(this._template).content.querySelector(".card").cloneNode(true);
     }
     _setListeners() {
-      this.likeButton.addEventListener("click", this._clickLike.bind(this));
+      this.likeButton.addEventListener("click", this._handleCardLike.bind(this));
       this._cardImage.addEventListener("click", this._handleImageClick.bind(this));
+      if (this._ownerId===this._userId) {
+        this._deleteButton.addEventListener("click", () => this.handleDeleteCardClick(this));
+      }
     }
-    _clickLike () {
-      this._handleLikeClick();
+    _handleCardLike () {
+      this._handleLikeClick(this);
     }
     _handleImageClick () {
       this._openImage();
@@ -36,7 +37,7 @@ export default class Card {
       this._handleCardClick(this._name, this._link);
     }
     createCard() {
-      if (this._ownerId == this._userId) {this._newCard.append(this.deleteButton)};
+      if (this._ownerId !== this._userId) {this._deleteButton.remove()};
       if (this._isLiked) {this.addLike()};
       this._cardImage.src = this._link;
       this._cardImage.alt = this._name;
@@ -44,10 +45,9 @@ export default class Card {
       this._newCard.querySelector(".card__title").textContent = this._name;
       this._newCard.id = this._id;
       this._setListeners();
-      this.handleDeleteCardClick();
       return this._newCard;  
     }
-    handleDeleteClick () {
+    deleteCard () {
       this._newCard.remove();
       this._newCard = null;
     }
@@ -59,10 +59,17 @@ export default class Card {
     }
     setCurrentLike(data) {
       this.currentLikes.textContent = data.currentLikes;
+      this._isLiked = data.isLiked;
       if (data.isLiked){
         this.addLike();
       } else {
         this.removeLike();
       }
+    }
+    isLiked() {
+      return this._isLiked
+    }
+    getId() {
+      return this._id
     }
   }
