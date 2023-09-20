@@ -7,6 +7,7 @@ const body = document.querySelector(".body"),
     formProfile = document.querySelector(".form_profile"),
     formNewPlace = document.querySelector(".form_new-place"),
     formEditAvatar = document.querySelector(".form_avatar-editor"),
+    formDeleteCard = document.querySelector(".form_delete-card"),
     formProfileName = formProfile.querySelector("[name=name]"),
     formProfileMetier = formProfile.querySelector("[name=metier]"),
     cardsContainer = document.querySelector(".cards"),
@@ -18,4 +19,4 @@ const body = document.querySelector(".body"),
         errorClass: 'form__input-error_active'
       }
   ;
-export {body, buttonEditAvatar, buttonAddCard, buttonEditProfile, profileName, profileMetier, formProfile, formNewPlace, formEditAvatar, formProfileName, formProfileMetier, cardsContainer, validationSettings};
+export {body, buttonEditAvatar, buttonAddCard, buttonEditProfile, profileName, profileMetier, formProfile, formNewPlace, formEditAvatar, formDeleteCard, formProfileName, formProfileMetier, cardsContainer, validationSettings};

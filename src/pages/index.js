@@ -7,12 +7,13 @@ import PopupWithForm from '../components/PopupWithForm.js';
 import PopupDeleteCard from '../components/PopupDeleteCard.js';
 import Section from '../components/Section.js';
 import Api from '../components/Api.js'
-import {buttonEditAvatar, buttonAddCard, buttonEditProfile, formProfile, formNewPlace, formEditAvatar, formProfileName, formProfileMetier, validationSettings} from '../utils/constants.js'
+import {buttonEditAvatar, buttonAddCard, buttonEditProfile, formProfile, formNewPlace, formEditAvatar, formDeleteCard, formProfileName, formProfileMetier, validationSettings} from '../utils/constants.js'
 
 const userInfo = new UserInfo({nameSelector: ".profile__name", metierSelector: ".profile__metier", avatarSelector: ".profile__avatar"}),
       validateFromProfile = new FormValidator(validationSettings, formProfile),
       validateFromNewPlace = new FormValidator(validationSettings, formNewPlace),
       validateFromEditAvatar = new FormValidator(validationSettings, formEditAvatar),
+      valdiateFormDeleteCard = new FormValidator(validationSettings, formDeleteCard),
       cardSection = new Section(createCard, ".cards"),
       popupWithProfileEditor = new PopupWithForm (".popup_profile-editor", ({name, metier}) => editProfile({name, metier}), () => validateFromProfile.resetValidation()),
       popupCardAdds = new PopupWithForm(".popup_new-card", item => addNewCard(item), () => validateFromNewPlace.resetValidation()),
@@ -113,7 +114,7 @@ function addNewCard(card) {
 function handleDeleteCardClick(card) {
   function handleButtonClick() {
     popupDeleteCard.setSubmitButtonText("Удаление...");
-    popupDeleteCard.disableButton();
+    valdiateFormDeleteCard.disableButton();
     api.deleteCard(card.getId())
     .then(() => {
       card.deleteCard();
@@ -124,7 +125,7 @@ function handleDeleteCardClick(card) {
     })
     .finally(() => {
       popupDeleteCard.setSubmitButtonText("Да");
-      popupDeleteCard.enableButton();
+      valdiateFormDeleteCard.enableButton();
     })
   }
   popupDeleteCard.setCallback(handleButtonClick);

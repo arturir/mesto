@@ -14,10 +14,4 @@ export default class PopupDeleteCard extends Popup {
     setSubmitButtonText(text) {
         this._button.textContent = text;
     }
-    disableButton() {
-        this._button.disabled = true;
-    }
-    enableButton(){
-        this._button.disabled = false;
-    }
 }
